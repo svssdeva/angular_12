@@ -6,7 +6,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy{
-  title = 'angular-new';
+  title = 'Fitness Tracker';
 
   ngOnInit(): void {
   }
