@@ -1,0 +1,18 @@
+mat-toolbar {
+  div {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        a {
+          text-decoration: none;
+          color: #fff;
+        }
+        a:active, a:hover {
+          color: lightseagreen;
+        }
+      }
+    }
+  }
+}

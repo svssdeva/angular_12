@@ -1,0 +1,6 @@
+<mat-nav-list>
+  <mat-list-item *ngFor="let link of links">
+    <mat-icon>{{returnIcon(link)}}</mat-icon>
+    <a matListItem matLine [routerLink]="link === 'logout' ? '/': link" (click)="onToggleSideNav()">{{ link }}</a>
+  </mat-list-item>
+</mat-nav-list>

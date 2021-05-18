@@ -1,1 +1,13 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav role="navigation">
+      <h5>Hello from sidenav</h5>
+    <app-sidenav-list (sideNavToggle)="toggleSideNav(sidenav)"></app-sidenav-list>
+  </mat-sidenav>
+  <mat-sidenav-content role="main">
+    <app-header (sideNavToggle)="toggleSideNav(sidenav)"></app-header>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

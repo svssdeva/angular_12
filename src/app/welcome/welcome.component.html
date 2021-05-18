@@ -1,1 +1,6 @@
-<p>welcome works!</p>
+<div class="welcome" fxLayout="column" fxLayout.gt-md="row" fxLayoutGap.gt-md="20px" fxLayoutAlign="center center">
+  <section *ngFor="let data of content">
+    <h1>{{data.title}}</h1>
+    <p>{{data.desc}}</p>
+  </section>
+</div>

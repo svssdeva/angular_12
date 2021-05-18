@@ -16,4 +16,9 @@ export class AppComponent implements OnInit, OnDestroy{
   async showEvent(event: any) {
     console.log(event);
   }
+  toggleSideNav(sideNav: any) {
+    sideNav.opened = !sideNav.opened;
+  }
+
+
 }
