@@ -19,6 +19,7 @@ import {FormsModule} from "@angular/forms";
 import {MAT_DATE_LOCALE} from "@angular/material/core";
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
+import {StopTrainingComponent} from "./training/current-training/stop-training-component";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
     PastTrainingComponent,
     WelcomeComponent,
     HeaderComponent,
-    SidenavListComponent
+    SidenavListComponent,
+    StopTrainingComponent
   ],
     imports: [
         BrowserModule,
