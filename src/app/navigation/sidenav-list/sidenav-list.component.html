@@ -1,6 +1,12 @@
 <mat-nav-list>
   <mat-list-item *ngFor="let link of links">
-    <mat-icon>{{returnIcon(link)}}</mat-icon>
-    <a matListItem matLine [routerLink]="link === 'logout' ? '/': link" (click)="onToggleSideNav()">{{ link }}</a>
+    <ng-container *ngIf="isAuth && (link === 'logout' || link === 'training')">
+      <mat-icon>{{returnIcon(link)}}</mat-icon>
+      <a matListItem matLine  (click)="onToggleSideNav(link)">{{ link }}</a>
+    </ng-container>
+    <ng-container *ngIf="!isAuth && (link === 'login' || link === 'signup')">
+      <mat-icon>{{returnIcon(link)}}</mat-icon>
+      <a matListItem matLine  (click)="onToggleSideNav(link)">{{ link }}</a>
+    </ng-container>
   </mat-list-item>
 </mat-nav-list>

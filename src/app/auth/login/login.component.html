@@ -1,1 +1,17 @@
-<p>login works!</p>
+<section>
+  <form fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center" #form="ngForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Enter E-Mail</mat-label>
+      <input #emInput="ngModel" type="email" matInput placeholder="Your Email" autocomplete="false"  ngModel name="email" email required >
+      <mat-error *ngIf="emInput.hasError('required')">Field must not be empty</mat-error>
+      <mat-error *ngIf="!emInput.hasError('required')">E-mail is invalid</mat-error>
+    </mat-form-field>
+    <mat-form-field hintLabel="Should be at-least 6 characters long" appearance="outline">
+      <mat-label>Enter Password</mat-label>
+      <input #pwInput="ngModel" type="password" matInput placeholder="Your Password" autocomplete="false" ngModel name="password" required minlength="6">
+      <mat-hint align="end">{{pwInput?.value?.length || 0}} / 6</mat-hint>
+      <mat-error>Has to be 6 characters long.</mat-error>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Submit</button>
+  </form>
+</section>

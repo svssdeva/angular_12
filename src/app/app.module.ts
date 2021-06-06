@@ -20,6 +20,8 @@ import {MAT_DATE_LOCALE} from "@angular/material/core";
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import {StopTrainingComponent} from "./training/current-training/stop-training-component";
+import {AuthService} from "./services/auth.service";
+import {TrainingService} from "./services/training.service";
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import {StopTrainingComponent} from "./training/current-training/stop-training-c
   providers: [
     {
       provide: MAT_DATE_LOCALE, useValue: 'en-IN'
-    }
+    },
+    AuthService,
+    TrainingService
   ],
   bootstrap: [AppComponent]
 })
