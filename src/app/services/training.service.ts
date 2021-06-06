@@ -7,7 +7,10 @@ import {Subject} from "rxjs";
 })*/
 export class TrainingService {
   private availableExercise: Array<ExerciseModel> = [
-    {id: '1', name: 'Burpees', calories: 100, state: null, date: new Date(), duration: 150}
+    { id: 'crunches', name: 'Crunches', duration: 30, calories: 8 },
+    { id: 'touch-toes', name: 'Touch Toes', duration: 180, calories: 15 },
+    { id: 'side-lunges', name: 'Side Lunges', duration: 120, calories: 18 },
+    { id: 'burpees', name: 'Burpees', duration: 60, calories: 8 }
   ];
   private runningExercise: ExerciseModel = new ExerciseModel({});
   exerciseChanged = new Subject<ExerciseModel>();
