@@ -14,6 +14,7 @@ export class TrainingService {
   ];
   private runningExercise: ExerciseModel = new ExerciseModel({});
   exerciseChanged = new Subject<ExerciseModel>();
+  private exercises: Array<ExerciseModel> = [];
   constructor() {
   }
   getAvailableExercises() {
@@ -24,5 +25,28 @@ export class TrainingService {
     if (this.runningExercise.id.length > 0) {
       this.exerciseChanged.next({...this.runningExercise});
     }
+  }
+  getRunningExercise() {
+    return {...this.runningExercise};
+  }
+
+  completeExercise() {
+    this.exercises.push({...this.runningExercise, state: 'completed', date: new Date()});
+    this.runningExercise = new ExerciseModel({});
+    this.exerciseChanged.next(new ExerciseModel({}));
+  }
+  cancelExercise(progress: number) {
+    this.exercises.push({...this.runningExercise,
+      state: 'cancelled',
+      date: new Date(),
+      calories: this.runningExercise.calories * (progress / 100),
+      duration: this.runningExercise.calories * (progress / 100)
+    });
+    this.runningExercise = new ExerciseModel({});
+    this.exerciseChanged.next(new ExerciseModel({}));
+  }
+
+  getCompletedOrCancelledExercises() {
+    return this.exercises.slice();
   }
 }
