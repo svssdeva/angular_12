@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fitness-tracker-angular-cc772": {
+      "hosting": {
+        "angular-new": [
+          "fitness-tracker-angular-cc772"
+        ]
+      }
+    }
+  }
+}

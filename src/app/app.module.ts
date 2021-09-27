@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ServiceWorkerModule } from '@angular/service-worker';
+import {ServiceWorkerModule, SwRegistrationOptions} from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import {MaterialModule} from "./material/material.module";
 import { SignupComponent } from './auth/signup/signup.component';
@@ -22,6 +22,8 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
 import {StopTrainingComponent} from "./training/current-training/stop-training-component";
 import {AuthService} from "./services/auth.service";
 import {TrainingService} from "./services/training.service";
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 
 @NgModule({
   declarations: [
@@ -49,14 +51,20 @@ import {TrainingService} from "./services/training.service";
       MaterialModule,
       FlexLayoutModule,
       FormsModule,
-      AppRoutingModule
+      AppRoutingModule,
+      AngularFireModule.initializeApp(environment.firebaseConfig),
+      AngularFirestoreModule
     ],
   providers: [
     {
       provide: MAT_DATE_LOCALE, useValue: 'en-IN'
     },
     AuthService,
-    TrainingService
+    TrainingService,
+    {
+      provide: SwRegistrationOptions,
+      useFactory: () => ({enabled: environment.production})
+    },
   ],
   bootstrap: [AppComponent]
 })
